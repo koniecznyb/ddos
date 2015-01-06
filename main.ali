@@ -7,17 +7,20 @@ RV NO_EXCEPTION_HANDLERS
 RV NO_EXCEPTIONS
 RV NO_IO
 RV NO_STANDARD_STORAGE_POOLS
+RV NO_STREAMS
 RV NO_DEFAULT_INITIALIZATION
 RV NO_OBSOLESCENT_FEATURES
 RV SPARK_05
 
-U main%b		main.adb		cac149e1 NE OO SU IL
+U main%b		main.adb		39fc4054 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 W gnat%s		gnat.ads		gnat.ali
 W gnat.sockets%s	g-socket.adb		g-socket.ali
+W system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
 
 D ada.ads		20070406091342 3ffc8e18
 D a-except.ads		20140129161953 f86a4103
@@ -33,7 +36,7 @@ D g-socket.ads		20140219150543 923c234a
 D interfac.ads		20140225151838 69adb1b9
 D i-c.ads		20110801143639 5421119b
 D i-cstrea.ads		20130412125801 8128536b
-D main.adb		20150105044346 98fade7c
+D main.adb		20150106063156 6bc7d7c9
 D system.ads		20120723080122 90249111
 D s-crtl.ads		20140225151544 840e6817
 D s-exctab.ads		20140225151139 54135002
@@ -49,6 +52,8 @@ D s-stalib.ads		20140225151139 a891183f
 D s-stoele.ads		20140225151139 2dc34a04
 D s-stoele.adb		20140225151139 ed88f8fb
 D s-stopoo.ads		20131010103753 b16154c2
+D s-string.ads		20140225151139 8fe54fb7
+D s-ststop.ads		20140225151139 e6693757
 D s-traent.ads		20140225151139 b5116092
 D s-unstyp.ads		20140225151139 510692af
 D s-wchcon.ads		20140225151139 1b7d22d2
@@ -58,30 +63,36 @@ X 2 a-except.ads
 53K13*Exceptions 360e19 15|3w10 3r30
 X 7 a-textio.ads
 49K13*Text_IO 471e16 15|1w10 1r27
-263U14*Put_Line 15|37s17 39s17
+263U14*Put_Line 15|53s17 55s17
 X 10 gnat.ads
-34K9*GNAT 37e9 15|2r6 2r24 15r17
+34K9*GNAT 37e9 15|2r6 2r24 16r17
 X 11 g-socket.ads
-58K14*Sockets 1263e17 15|2w11 2r29 15r22
-379U14*Initialize 15|15s30
+58K14*Sockets 1263e17 15|2w11 2r29 16r22
+379U14*Initialize 15|16s30
 412I9*Socket_Type<integer> 15|12r25
-451X4*Socket_Error 15|30r30
+451X4*Socket_Error 15|33r30
 479I9*Port_Type<integer>
 505R9*Sock_Addr_Type 508e14 15|11r27
-506r7*Addr{488R9} 15|17m25
-507i7*Port{479I9} 15|18m25
-524V13*Inet_Addr{488R9} 15|17s33
-805U14*Create_Socket 15|16s17
-842U14*Close_Socket 15|22s17
-845U14*Connect_Socket 15|20s17
+506r7*Addr{488R9} 15|18m25
+507i7*Port{479I9} 15|19m25
+524V13*Inet_Addr{488R9} 15|18s33
+805U14*Create_Socket 15|17s17
+842U14*Close_Socket 15|25s17
+845U14*Connect_Socket 15|21s17
+1007P9*Stream_Access(5|39R9) 15|13r28 37r56
+1010V13*Stream{1007P9} 15|23s28
 X 15 main.adb
-5U11*main 5b11 43l5 43t9
+5U11*main 5b11 59l5 59t9
 7a9 targetURI{string}
-8b9 isSuccessful{boolean} 35m9 36r12
-10U19 initiate_connection 10b19 10>40 23l13 23t32 27s17
-10s40 botAddress{string} 17r43
-11r17 Address{11|505R9} 17m17 18m17 20r41
-12i17 Client{11|412I9} 16m32 20r33 22r31
-25V18 check_bot_connection{boolean} 25b18 25>40 32l13 32t33 35s25
-25s40 botAddress{string} 27r37
+8b9 isSuccessful{boolean} 51m9 52r12
+10U19 initiate_connection 10b19 10>40 26l13 26t32 30s17
+10s40 botAddress{string} 18r43
+11r17 Address{11|505R9} 18m17 19m17 21r41
+12i17 Client{11|412I9} 17m32 21r33 23r36 25r31
+13p17 Channel{11|1007P9} 23m17 24r32
+28V18 check_bot_connection{boolean} 28b18 28>40 35l13 35t33 51s25
+28s40 botAddress{string} 30r37
+37U19 write_message_to_socket 37b19 37>44 37>71 42l13 42t36
+37p44 Channel{11|1007P9} 40r32
+37s71 Message{string}
 

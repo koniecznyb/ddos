@@ -10,6 +10,7 @@ procedure main is
 	procedure initiate_connection (botAddress: in String) is
 		Address : sock_addr_type;
 		Client: Socket_Type;
+		Channel  : Stream_Access;
 
 	begin
 		GNAT.Sockets.Initialize;
@@ -18,6 +19,9 @@ procedure main is
 		Address.Port := 2345;
 
 		Connect_Socket (Client, Address);
+
+		Channel := Stream (Client);
+		write_message_to_socket(Channel, "Message");
 
 		Close_Socket (Client);
 	end initiate_connection;
@@ -30,6 +34,19 @@ procedure main is
 			when SOCKET_ERROR =>
 				return false;
 	end check_bot_connection;
+
+	procedure write_message_to_socket (Channel: in Stream_Access; Message: in String) is
+	begin
+		
+		String'Write ( Channel, Message );
+
+	end write_message_to_socket;
+
+	-- procedure attack_order (botAddress, targetURI: in String) is
+	-- begin
+
+
+	-- end
 
 begin
 	isSuccessful := check_bot_connection("127.0.0.1");
