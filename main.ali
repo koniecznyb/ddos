@@ -1,20 +1,26 @@
 V "GNAT Lib v4.9"
 M P W=b
-P SS ZX
+P ZX
 
 RN
 RV NO_EXCEPTION_HANDLERS
 RV NO_EXCEPTIONS
 RV NO_IO
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_STREAMS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_OBSOLESCENT_FEATURES
 RV SPARK_05
 
-U main%b		main.adb		ae488c68 NE OO SU IL
+U main%b		main.adb		dd416a4e NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
-W connection%s		connection.adb		connection.ali
 W gnat%s		gnat.ads		gnat.ali
 W gnat.sockets%s	g-socket.adb		g-socket.ali
+W system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
 
 D ada.ads		20070406091342 3ffc8e18
 D a-except.ads		20140129161953 f86a4103
@@ -25,13 +31,12 @@ D a-tags.ads		20111212115430 6c0509d0
 D a-textio.ads		20140129155348 386df5d4
 D a-unccon.ads		20070406091342 f9eb8f06
 D a-uncdea.ads		20070406091342 f15a5ed1
-D connection.ads	20150107055341 640a591b
 D gnat.ads		20110801150502 fd2ad2f1
 D g-socket.ads		20140219150543 923c234a
 D interfac.ads		20140225151838 69adb1b9
 D i-c.ads		20110801143639 5421119b
 D i-cstrea.ads		20130412125801 8128536b
-D main.adb		20150107055506 987942ee
+D main.adb		20150125133522 8f7afdd3
 D system.ads		20120723080122 90249111
 D s-crtl.ads		20140225151544 840e6817
 D s-exctab.ads		20140225151139 54135002
@@ -41,39 +46,55 @@ D s-finroo.ads		20120426095924 4ff27390
 D s-oscons.ads		20141226045407 530d9c4b
 D s-parame.ads		20140225151139 ab8cb46a
 D s-pooglo.ads		20110804083314 542f33d0
-D s-secsta.ads		20140225151139 86a2856d
 D s-soflin.ads		20140225151139 aa763b52
 D s-stache.ads		20140225151139 a37c21ec
 D s-stalib.ads		20140225151139 a891183f
 D s-stoele.ads		20140225151139 2dc34a04
 D s-stoele.adb		20140225151139 ed88f8fb
 D s-stopoo.ads		20131010103753 b16154c2
-D s-stratt.ads		20131014135145 aedef97e
+D s-string.ads		20140225151139 8fe54fb7
+D s-ststop.ads		20140225151139 e6693757
 D s-traent.ads		20140225151139 b5116092
 D s-unstyp.ads		20140225151139 510692af
 D s-wchcon.ads		20140225151139 1b7d22d2
 X 1 ada.ads
-16K9*Ada 19e8 16|1r6 1r23 3r6 3r26
+16K9*Ada 19e8 15|1r6 1r23 3r6 3r26
 X 2 a-except.ads
-53K13*Exceptions 360e19 16|3w10 3r30
+53K13*Exceptions 360e19 15|3w10 3r30
 X 7 a-textio.ads
-49K13*Text_IO 471e16 16|1w10 1r27
-263U14*Put_Line 16|31s17 33s17
-X 10 connection.ads
-5K9*Connection 17e15 16|4w6 4r22
-15U19*initiate_connection 16|13s17 23s17
-X 11 gnat.ads
-34K9*GNAT 37e9 16|2r6 2r24
-X 12 g-socket.ads
-58K14*Sockets 1263e17 16|2w11 2r29
-451X4*Socket_Error 16|16r30
-X 16 main.adb
-6U11*main 6b11 37l5 37t9
-8a9 targetURI{string}
-9b9 isSuccessful{boolean} 29m9 30r12
-11V18 check_bot_connection{boolean} 11b18 11>40 18l13 18t33 29s25
-11s40 botAddress{string} 13r37
-21U19 attack_order 21b19 21>33 21>45 25l13 25t25 36s9
-21s33 botAddress{string} 23r37
-21s45 targetURI{string}
+49K13*Text_IO 471e16 15|1w10 1r27
+263U14*Put_Line 15|53s17 55s17 57s17
+X 10 gnat.ads
+34K9*GNAT 37e9 15|2r6 2r24 15r17
+X 11 g-socket.ads
+58K14*Sockets 1263e17 15|2w11 2r29 15r22
+379U14*Initialize 15|15s30
+412I9*Socket_Type<integer> 15|8r17
+451X4*Socket_Error 15|36r30
+479I9*Port_Type<integer> 15|13r78
+505R9*Sock_Addr_Type 508e14 15|7r18
+506r7*Addr{488R9} 15|17m25
+507i7*Port{479I9} 15|18m25
+524V13*Inet_Addr{488R9} 15|17s33
+805U14*Create_Socket 15|16s17
+842U14*Close_Socket 15|27s17
+845U14*Connect_Socket 15|20s17
+1007P9*Stream_Access(5|39R9) 15|9r18
+1010V13*Stream{1007P9} 15|21s28
+X 15 main.adb
+5U11*main 5b11 61l5 61t9
+7r9 address{11|505R9} 17m17 18m17 20r41
+8i9 client{11|412I9} 16m32 20r33 21r36 27r31
+9p9 channel{11|1007P9} 21m17 44r30
+10a9 targetURI{string}
+11b9 isSuccessful{boolean} 51m9 52r12
+13U19 initiate_connection 13b19 13>40 13>63 23l13 23t32 32s17 43s17
+13s40 botAddress{string} 17r43
+13i63 portNumber{11|479I9} 18r33
+25U19 close_connection 25b19 28l13 28t29 33s17 45s17
+30V18 check_bot_connection{boolean} 30b18 30>40 38l13 38t33 51s25
+30s40 botAddress{string} 32r37
+41U19 attack_order 41b19 41>33 41>45 46l13 46t25 54s17 58s17
+41s33 botAddress{string} 43r37
+41s45 targetURI{string} 44r39
 

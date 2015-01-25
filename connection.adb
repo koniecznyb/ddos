@@ -16,6 +16,8 @@ package body Connection is
 		Connect_Socket (con.client, con.address);
 		con.channel := Stream (con.client);
 
+		String'Write(con.channel, "siema");
+
 		Close_Socket (con.client);
 	end initiate_connection;
 
