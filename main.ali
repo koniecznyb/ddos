@@ -12,7 +12,7 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_OBSOLESCENT_FEATURES
 RV SPARK_05
 
-U main%b		main.adb		dd416a4e NE OO SU IL
+U main%b		main.adb		232c5463 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.streams%s		a-stream.adb		a-stream.ali
@@ -20,6 +20,7 @@ W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 W gnat%s		gnat.ads		gnat.ali
 W gnat.sockets%s	g-socket.adb		g-socket.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
 W system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
 
 D ada.ads		20070406091342 3ffc8e18
@@ -36,13 +37,14 @@ D g-socket.ads		20140219150543 923c234a
 D interfac.ads		20140225151838 69adb1b9
 D i-c.ads		20110801143639 5421119b
 D i-cstrea.ads		20130412125801 8128536b
-D main.adb		20150125133522 8f7afdd3
+D main.adb		20150125163605 7117c3fe
 D system.ads		20120723080122 90249111
 D s-crtl.ads		20140225151544 840e6817
 D s-exctab.ads		20140225151139 54135002
 D s-ficobl.ads		20120709130952 55a71d43
 D s-finmas.ads		20140225151139 814daec4
 D s-finroo.ads		20120426095924 4ff27390
+D s-imgint.ads		20090409150019 02dbe0c2
 D s-oscons.ads		20141226045407 530d9c4b
 D s-parame.ads		20140225151139 ab8cb46a
 D s-pooglo.ads		20110804083314 542f33d0
@@ -63,7 +65,7 @@ X 2 a-except.ads
 53K13*Exceptions 360e19 15|3w10 3r30
 X 7 a-textio.ads
 49K13*Text_IO 471e16 15|1w10 1r27
-263U14*Put_Line 15|53s17 55s17 57s17
+263U14*Put_Line 15|54s17 56s17 58s17
 X 10 gnat.ads
 34K9*GNAT 37e9 15|2r6 2r24 15r17
 X 11 g-socket.ads
@@ -82,19 +84,20 @@ X 11 g-socket.ads
 1007P9*Stream_Access(5|39R9) 15|9r18
 1010V13*Stream{1007P9} 15|21s28
 X 15 main.adb
-5U11*main 5b11 61l5 61t9
+5U11*main 5b11 62l5 62t9
 7r9 address{11|505R9} 17m17 18m17 20r41
 8i9 client{11|412I9} 16m32 20r33 21r36 27r31
-9p9 channel{11|1007P9} 21m17 44r30
+9p9 channel{11|1007P9} 21m17 44r30 45r30
 10a9 targetURI{string}
-11b9 isSuccessful{boolean} 51m9 52r12
+11b9 isSuccessful{boolean} 52m9 53r12
 13U19 initiate_connection 13b19 13>40 13>63 23l13 23t32 32s17 43s17
 13s40 botAddress{string} 17r43
 13i63 portNumber{11|479I9} 18r33
-25U19 close_connection 25b19 28l13 28t29 33s17 45s17
-30V18 check_bot_connection{boolean} 30b18 30>40 38l13 38t33 51s25
+25U19 close_connection 25b19 28l13 28t29 33s17 46s17
+30V18 check_bot_connection{boolean} 30b18 30>40 38l13 38t33 52s25
 30s40 botAddress{string} 32r37
-41U19 attack_order 41b19 41>33 41>45 46l13 46t25 54s17 58s17
+41U19 attack_order 41b19 41>33 41>45 41>67 47l13 47t25 55s17 59s17
 41s33 botAddress{string} 43r37
 41s45 targetURI{string} 44r39
+41i67 numberOfAttacks{integer} 45r53
 
