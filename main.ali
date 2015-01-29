@@ -1,112 +1,155 @@
-V "GNAT Lib v2013"
+V "GNAT Lib v4.9"
 M P W=b
-P ZX
+P SS ZX
 
 RN
 RV NO_EXCEPTION_HANDLERS
 RV NO_EXCEPTIONS
 RV NO_IO
+RV NO_SECONDARY_STACK
 RV NO_STANDARD_STORAGE_POOLS
 RV NO_STREAMS
 RV NO_DEFAULT_INITIALIZATION
 RV NO_OBSOLESCENT_FEATURES
-RV SPARK
+RV SPARK_05
 
-U main%b		main.adb		aeb535b0 NE OO SU IL
+U main%b		main.adb		510cb09e NE OO SU IL
 W ada%s			ada.ads			ada.ali
+W ada.command_line%s	a-comlin.adb		a-comlin.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
-W ada.streams%s		a-stream.ads		a-stream.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.task_identification%s  a-taside.adb	a-taside.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 W gnat%s		gnat.ads		gnat.ali
 W gnat.sockets%s	g-socket.adb		g-socket.ali
 W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W system.strings.stream_ops%s  s-ststop.adb	s-ststop.ali
+W system.val_int%s	s-valint.adb		s-valint.ali
 
-D ada.ads		20130417131023 3ffc8e18
-D a-except.ads		20130417131019 10fcae55
-D a-finali.ads		20130417131020 52ecdc1b
-D a-ioexce.ads		20130417131020 8b9de6cd
-D a-stream.ads		20130417131021 2ca4ee37
-D a-tags.ads		20130417131022 6c0509d0
-D a-textio.ads		20130417131022 386df5d4
-D a-unccon.ads		20130417131022 f9eb8f06
-D a-uncdea.ads		20130417131022 f15a5ed1
-D gnat.ads		20130417131026 fd2ad2f1
-D g-socket.ads		20130417131026 923c234a
-D interfac.ads		20130417131027 cb4a8015
-D i-c.ads		20130417131026 5421119b
-D i-cstrea.ads		20130417131026 8128536b
-D main.adb		20150126125638 14184d7b
-D system.ads		20130417131036 f2f2d889
-D s-crtl.ads		20130417131029 dfcfca61
-D s-exctab.ads		20130417131029 66e51330
-D s-ficobl.ads		20130417131029 55a71d43
-D s-finmas.ads		20130417131029 b95bb341
-D s-finroo.ads		20130417131029 4ff27390
-D s-imgint.ads		20130417131030 02dbe0c2
-D s-oscons.ads		20130603160047 d2b348ca
-D s-parame.ads		20130417131032 b6e20cc0
-D s-pooglo.ads		20130417131032 542f33d0
-D s-soflin.ads		20130417131032 24c8153c
-D s-stache.ads		20130417131032 596fc1b4
-D s-stalib.ads		20130417131032 f78bcf95
-D s-stoele.ads		20130417131032 facd7d98
-D s-stoele.adb		20130417131032 afc5dc80
-D s-stopoo.ads		20130417131032 7b8fbeee
-D s-string.ads		20130417131032 46b01415
-D s-ststop.ads		20130417131032 ee472be4
-D s-traent.ads		20130417131033 5221ee41
-D s-unstyp.ads		20130417131034 6ae15c76
-D s-wchcon.ads		20130417131034 bfeb2e3d
+D ada.ads		20070406091342 3ffc8e18
+D a-comlin.ads		20140225151544 ea62afbc
+D a-except.ads		20140129161953 f86a4103
+D a-finali.ads		20111121113555 52ecdc1b
+D a-ioexce.ads		20140225151544 e4a01f64
+D a-stream.ads		20140122164720 1a984740
+D a-tags.ads		20111212115430 6c0509d0
+D a-taside.ads		20140124142722 68549ce6
+D a-textio.ads		20140129155348 386df5d4
+D a-unccon.ads		20070406091342 f9eb8f06
+D a-uncdea.ads		20070406091342 f15a5ed1
+D gnat.ads		20110801150502 fd2ad2f1
+D g-socket.ads		20140219150543 923c234a
+D interfac.ads		20140225151838 69adb1b9
+D i-c.ads		20110801143639 5421119b
+D i-cstrea.ads		20130412125801 8128536b
+D main.adb		20150129141953 81011459
+D system.ads		20120723080122 90249111
+D s-atacco.ads		20120515093410 4c36d12f
+D s-crtl.ads		20140225151544 840e6817
+D s-exctab.ads		20140225151139 54135002
+D s-ficobl.ads		20120709130952 55a71d43
+D s-finmas.ads		20140225151139 814daec4
+D s-finroo.ads		20120426095924 4ff27390
+D s-imgint.ads		20090409150019 02dbe0c2
+D s-linux.ads		20140409145429 5b2f79a5
+D s-multip.ads		20101011073009 38ac9f73
+D s-oscons.ads		20141226045407 530d9c4b
+D s-osinte.ads		20140409145429 59011f13
+D s-parame.ads		20140225151139 ab8cb46a
+D s-pooglo.ads		20110804083314 542f33d0
+D s-secsta.ads		20140225151139 86a2856d
+D s-soflin.ads		20140225151139 aa763b52
+D s-stache.ads		20140225151139 a37c21ec
+D s-stausa.ads		20110804134155 017a0a05
+D s-stalib.ads		20140225151139 a891183f
+D s-stoele.ads		20140225151139 2dc34a04
+D s-stoele.adb		20140225151139 ed88f8fb
+D s-stopoo.ads		20131010103753 b16154c2
+D s-string.ads		20140225151139 8fe54fb7
+D s-ststop.ads		20140225151139 e6693757
+D s-tasinf.ads		20120730151500 21316953
+D s-taspri.ads		20110927094500 15f617a8
+D s-taskin.ads		20140131154341 3f821f32
+D s-traent.ads		20140225151139 b5116092
+D s-unstyp.ads		20140225151139 510692af
+D s-valint.ads		20090409150019 48a52a3f
+D s-wchcon.ads		20140225151139 1b7d22d2
 X 1 ada.ads
-16K9*Ada 19e8 15|1r6 1r23 3r6 3r26
-X 2 a-except.ads
-53K13*Exceptions 355e19 15|3w10 3r30
-X 7 a-textio.ads
-49K13*Text_IO 471e16 15|1w10 1r27
-52P9*File_Type(369R9) 15|12r17
-53n32*Out_File{53E9} 15|57r39
-53n42*Append_File{53E9} 15|54r29
-86U14*Create 15|57s25
-92U14*Open 15|54s17
-98U14*Close 15|69s9
-259U14*Put_Line 15|59s9 60s9 63s17 65s17 67s17
-294X4*Name_Error 15|56r22
-X 10 gnat.ads
-34K9*GNAT 37e9 15|2r6 2r24 16r17
-X 11 g-socket.ads
-58K14*Sockets 1262e17 15|2w11 2r29 16r22
-379U14*Initialize 15|16s30
-412I9*Socket_Type 15|8r17
-451X4*Socket_Error 15|37r30
-479I9*Port_Type<integer> 15|14r78
-505R9*Sock_Addr_Type 508e14 15|7r18
-506r7*Addr{488R9} 15|18m25
-507i7*Port{479I9} 15|19m25
-524V13*Inet_Addr{488R9} 15|18s33
-805U14*Create_Socket 15|17s17
-841U14*Close_Socket 15|28s17
-844U14*Connect_Socket 15|21s17
-1006P9*Stream_Access(5|39R9) 15|9r18
-1009V13*Stream{1006P9} 15|22s28
-X 15 main.adb
-5U11*main 5b11 72l5 72t9
-7r9 address{11|505R9} 18m17 19m17 21r41
-8i9 client{11|412I9} 17m32 21r33 22r36 28r31
-9p9 channel{11|1006P9} 22m17 45r30 46r30
-10a9 targetURI{string}
-11b9 isSuccessful{boolean} 61m9 62r12
-12p9 Utfil{7|52P9} 54m22 54r22 57m32 57r32 59r18 60r18 63r26 65r26 67r26
-. 69m15 69r15
-14U19 initiate_connection 14b19 14>40 14>63 24l13 24t32 33s17 44s17
-14s40 botAddress{string} 18r43
-14i63 portNumber{11|479I9} 19r33
-26U19 close_connection 26b19 29l13 29t29 34s17 47s17
-31V18 check_bot_connection{boolean} 31b18 31>40 39l13 39t33 61s25
-31s40 botAddress{string} 33r37
-42U19 attack_order 42b19 42>33 42>45 42>67 48l13 48t25 64s17
-42s33 botAddress{string} 44r37
-42s45 targetURI{string} 45r39
-42i67 numberOfAttacks{integer} 46r53
+16K9*Ada 19e8 17|1r6 1r23 3r6 3r26 4r6 5r6 5r36 103r13 118r38 118r82
+X 2 a-comlin.ads
+38K13*Command_Line 139e21 17|4w10 103r17 118r42 118r86
+41V13*Argument_Count{natural} 17|103s30
+48V13*Argument{string} 17|118s55 118s99
+X 3 a-except.ads
+53K13*Exceptions 360e19 17|3w10 3r30
+X 8 a-taside.ads
+39K13*Task_Identification 77e28 17|5w10 5r40
+43P9*Task_Id<44|107P9>
+53V13*Current_Task{43P9} 17|67s37 105s29
+59U14*Abort_Task 17|67s25 105s17
+X 9 a-textio.ads
+49K13*Text_IO 471e16 17|1w10 1r27
+52P9*File_Type 17|14r17 15r23 57r20
+53n23*In_File{53E9} 17|62r40
+53n32*Out_File{53E9} 17|112r39
+53n42*Append_File{53E9} 17|109r29
+86U14*Create 17|112s25
+92U14*Open 17|62s25 109s17
+98U14*Close 17|91s9 95s10 121s9
+107V13*Is_Open{boolean} 17|94s12
+241U14*Put 17|76s25 77s25 82s25 83s25 84s25
+253V13*Get_Line{string} 17|72s32
+259U14*Put_Line 17|65s25 78s25 80s25 114s9 115s9 116s9
+263U14*Put_Line 17|66s25 104s17
+294X4*Name_Error 17|64r22 111r22
+297X4*End_Error 17|93r14
+X 12 gnat.ads
+34K9*GNAT 37e9 17|2r6 2r24 20r17
+X 13 g-socket.ads
+58K14*Sockets 1263e17 17|2w11 2r29 20r22
+379U14*Initialize 17|20s30
+412I9*Socket_Type<integer> 17|10r17
+451X4*Socket_Error 17|41r30
+479I9*Port_Type<integer> 17|18r78
+505R9*Sock_Addr_Type 508e14 17|9r18
+506r7*Addr{488R9} 17|22m25
+507i7*Port{479I9} 17|23m25
+524V13*Inet_Addr{488R9} 17|22s33
+805U14*Create_Socket 17|21s17
+842U14*Close_Socket 17|32s17
+845U14*Connect_Socket 17|25s17
+1007P9*Stream_Access(6|39R9) 17|11r18
+1010V13*Stream{1007P9} 17|26s28
+X 17 main.adb
+7U11*main 7b11 124l5 124t9
+9r9 address{13|505R9} 22m17 23m17 25r41
+10i9 client{13|412I9} 21m32 25r33 26r36 32r31
+11p9 channel{13|1007P9} 26m17 49r30 50r30
+12a9 targetURI{string}
+13b9 isSuccessful{boolean} 74m17 75r20
+14p9 Utfil{9|52P9} 65r34 76r29 77r29 78r34 80r34 82r29 83r29 84r29 109m22
+. 109r22 112m32 112r32 114r18 115r18 116r18 121m15 121r15
+15p9 BotnetsFile{9|52P9}
+18U19 initiate_connection 18b19 18>40 18>63 28l13 28t32 37s17 48s17
+18s40 botAddress{string} 22r43
+18i63 portNumber{13|479I9} 23r33
+30U19 close_connection 30b19 33l13 33t29 38s17 51s17
+35V18 check_bot_connection{boolean} 35b18 35>40 43l13 43t33 74s33
+35s40 botAddress{string} 37r37
+46U19 attack_order 46b19 46>33 46>45 46>67 52l13 52t25 79s25
+46s33 botAddress{string} 48r37
+46s45 targetURI{string} 49r39
+46i67 numberOfAttacks{integer} 50r53
+55U19 read_botnets_file_and_attack 55b19 55>48 55>73 98l5 98t33 118s9
+55s48 AttackTarget{string} 79r50
+55i73 numberOfAttacks{integer} 79r64
+57p9 BotsFile{9|52P9} 62m30 62r30 72r42 91m16 91r16 94r20 95m17 95r17
+72a9 botAddress{string} 74r54 77r36 79r38 83r36
+X 35 s-stausa.ads
+203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
+268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
+X 44 s-taskin.ads
+107P9*Task_Id(105R9)
 
